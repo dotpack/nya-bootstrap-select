@@ -7,6 +7,7 @@
     "url": "git://github.com/lordfriend/nya-bootstrap-select.git"
   },
   "license": "MIT",
+  "main": "./dist/js/nya-bs-select.js",
   "devDependencies": {
     "groundskeeper": "^0.1.11",
     "grunt": "~0.4.2",
