@@ -239,6 +239,23 @@ nyaBsSelect.directive('nyaBsSelect', ['$parse', '$document', '$timeout', '$compi
             // See: https://github.com/angular/angular.js/issues/1751
             modelValue = deepCopy(ngCtrl.$modelValue);
 
+          if($attrs.liveSearch === 'true' && $element.hasClass('open')) {
+            searchBox.children().eq(0)[0].focus();
+            var nyaBsOptionNode = findFocus(true);
+            if(nyaBsOptionNode) {
+              dropdownMenu.children().removeClass('active');
+              jqLite(nyaBsOptionNode).addClass('active');
+            }
+
+            if (Array.isArray(values) && values.length) {
+              noSearchResult.removeClass('show');
+            } else {
+              noSearchResult.addClass('show');
+            }
+
+            return;
+          }
+
           if(!modelValue) {
             return;
           }
